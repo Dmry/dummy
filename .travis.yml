@@ -1,0 +1,26 @@
+os: linux
+dist: bionic
+
+jobs:
+  include:
+    - stage: compile
+      language: cpp
+      compiler: gcc
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-9
+            - g++-9
+            - meson
+      env:
+        - CC=/usr/bin/gcc-9
+        - CXX=/usr/bin/g++-9
+      script:
+        - gcc -v && g++ -v && cmake --version
+        - mkdir build
+        - meson setup build
+        - cd build
+        - meson compile

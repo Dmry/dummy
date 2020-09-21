@@ -1,0 +1,15 @@
+# IDE folders
+.vscode
+*.code-workspace
+
+# Meson
+.buildconfig
+build
+builddir
+## subprojects
+subprojects/packagecache
+subprojects/eigen*/
+subprojects/benchmark*/
+subprojects/Catch2*/
+subprojects/spdlog*/
+subprojects/pybind11*/
